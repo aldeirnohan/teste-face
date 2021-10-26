@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ServicoController;
 
 /*
@@ -14,10 +15,15 @@ use App\Http\Controllers\ServicoController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//Rotas Geral
 Route::get('/', [HomeController::class, 'index']);
+
+//Rotas Serviço
 Route::get('servico', [ServicoController::class, 'show']);
 Route::get('servico/{id}', [ServicoController::class, 'get']);
 
+//Rotas importação
+Route::get('importacao', [ClienteController::class, 'create'])->name('importacao.create');
+Route::post('importacao', [ClienteController::class, 'store'])->name('importacao.store');
 
 

@@ -10,7 +10,7 @@ class Venda extends Model
     use HasFactory;
 
     protected $fillable = [
-        'endereco_id',
+        'cliente_id',
         'servico_id',
         'data_venda',
         'horas_trabalhadas',
@@ -18,6 +18,8 @@ class Venda extends Model
         'valor_custo',
         'resultado_venda'
     ];
+
+    public $timestamps = false;
 
     protected $table = 'vendas';
 }

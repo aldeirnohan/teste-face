@@ -15,9 +15,9 @@ class CreateVendasTable extends Migration
     {
         Schema::create('vendas', function(Blueprint $table){
             $table->id();
-            $table->unsignedBigInteger('endereco_id');
+            $table->unsignedBigInteger('cliente_id');
             $table->unsignedBigInteger('servico_id');
-            $table->foreign('endereco_id')->references('id')->on('enderecos')->onDelete('cascade');
+            $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade');
             $table->foreign('servico_id')->references('id')->on('servicos')->onDelete('cascade');
             $table->date('data_venda');
             $table->float('horas_trabalhadas');

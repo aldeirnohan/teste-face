@@ -10,9 +10,21 @@ class Cliente extends Model
     use HasFactory;
 
     protected $fillable = [
-        'CNPJ',
-        'razao_social'
+        'cnpj',
+        'razao_social',
+        'endereco',
+        'cidade',
+        'uf',
+        'cep'
     ];
 
+    public $timestamps = false;
+
     protected $table = 'clientes';
+
+    public function setCnpjAttribute($value)
+    {
+        $this->attributes['cnpj'] = preg_replace('/\D/', '', $value);
+    }
+
 }
