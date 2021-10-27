@@ -21,5 +21,13 @@ class Venda extends Model
 
     public $timestamps = false;
 
+    public function servico(){
+        return $this->belongsTo(Servico::class, 'servico_id');
+    }
+
+    public function cliente(){
+        return $this->belongsTo(Cliente::class, 'cliente_id');
+    }
+
     protected $table = 'vendas';
 }
